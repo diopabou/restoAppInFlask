@@ -1,0 +1,11 @@
+{% extends 'layout.html'%}
+{% block body%}
+
+<h1>Edite menu item</h1>
+<form class="" action="#" method="post">
+  <input type="text" name="name" value="{{item.name}}" placeholder="Menu item">
+  <input type="text" name="description" value="{{item.description}}" placeholder="Menu description">
+  <input type="text" name="price" value="{{item.price}}" placeholder="Menu Price">
+  <input type="submit" name="" value="Add Menu item">
+</form>
+{% endblock %}
