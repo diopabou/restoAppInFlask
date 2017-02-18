@@ -80,7 +80,7 @@ def showMenuItem(restaurant_id):
 def newMenuItem(restaurant_id):
     restaurant = session.query(Restaurant).filter_by(id = restaurant_id).one()
     if request.method == 'POST':
-        menu_item = MenuItem(name = request.form['nameMenu'], description=request.form['description'], price= request.form['price'], restaurant_id = restaurant_id)
+        menu_item = MenuItem(name = request.form['nameMenu'], description=request.form['description'], price= request.form['price'], course= request.form['course'], restaurant_id = restaurant_id)
         session.add(menu_item)
         session.commit()
         return redirect(url_for('showMenuItem', restaurant_id = restaurant_id))
@@ -99,6 +99,7 @@ def editMenuItem(restaurant_id, menu_id):
         menu_item.name = request.form['nameMenu']
         menu_item.description = request.form['description']
         menu_item.price = request.form['price']
+        menu_item.course = request.form['course']
         session.add(menu_item)
         session.commit()
         return redirect(url_for('showMenuItem', restaurant_id = restaurant_id))
