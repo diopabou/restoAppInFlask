@@ -6,7 +6,7 @@
 
     <ul>
       {% for resto in restaurants  %}
-        <li class="resto__name">{{resto.name}}</li>
+        <li class="resto__name"><a href="{{url_for('showMenuItem', restaurant_id = resto.id)}}">{{resto.name}}</a></li>
       {% endfor %}
     </ul>
 {% endblock %}

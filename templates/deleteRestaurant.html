@@ -3,5 +3,8 @@
 
 <h1>Delete Restaurant</h1>
 <h2>Are you sure to want to delete {{ restaurant.name }} ?</h2>
-<button type="button" name="button">Delete</button>
+
+<form action="{{url_for('deleteRestaurant', restaurant_id = restaurant.id)}}" method = 'post'>
+<input type='submit', value = 'Delete'>
+</form>
 {% endblock %}
