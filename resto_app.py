@@ -22,7 +22,7 @@ def restaurantsJSON():
     restaurants = session.query(Restaurant).all()
     return jsonify(restaurants = [resto.serialize for resto in restaurants])
 
-@app.route('/restaurants/<int:restaurant_id>')
+@app.route('/restaurants/<int:restaurant_id>/JSON')
 def restaurantJSON(restaurant_id):
     restaurant = session.query(Restaurant).filter_by(id=restaurant_id).one()
     return jsonify(restaurant = restaurant.serialize)

@@ -2,9 +2,27 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Menu Resto App</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap/css/bootstrap-theme.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/master.css')}}">
   </head>
   <body>
-    {% block body %} {% endblock %}
+    <div class="container">
+        <header>
+          <div class="">
+            {% block link %} {%endblock %}
+          </div>
+        </header>
+        {% block body %} {% endblock %}
+    </div>
+
+    <footer>
+        <p>Code with love by Abou DIOP</p>
+    </footer>
+    <script src="{{url_for('static', filename='javascript/jquery.js')}}"></script>
+    <script src="{{url_for('static', filename='css/bootstrap/js/bootstrap.min.js')}}"></script>
   </body>
 </html>

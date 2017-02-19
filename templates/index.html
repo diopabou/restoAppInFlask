@@ -1,25 +1,40 @@
 {% extends 'layout.html'%}
-{% block body%}
-    <h1>Restaurant</h1>
 
+{%block link %}
+
+{% endblock %}
+
+{% block body%}
+
+<div class="header__section" >
+  <div class="row">
+    <div class="col-md-8">
+      <h1 class="header__section__title">Restaurant</h1>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+</div>
     {% with messages = get_flashed_messages() %}
     {% if messages %}
       <ul>
         {% for message in messages %}
-            <li>{{message}}</li>
+            <li class="alert-success feedback__message">{{message}}</li>
         {% endfor%}
       </ul>
     {% endif%}
 
     {% endwith %}
+    <a href="{{url_for('newRestaurant')}}" class="add__things">Add new Restaurant</a>
+    <div class="row">
+      <div class="col-md-offset-2  col-md-8 resto__li" >
+        <ul >
+          {% for resto in restaurants  %}
+            <li class="resto__name"><a href="{{url_for('showMenuItem', restaurant_id = resto.id)}}">{{resto.name}}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
 
-    <a href="{{url_for('newRestaurant')}}">Add new Restaurant</a>
+    </div>
 
-
-
-    <ul>
-      {% for resto in restaurants  %}
-        <li class="resto__name"><a href="{{url_for('showMenuItem', restaurant_id = resto.id)}}">{{resto.name}}</a></li>
-      {% endfor %}
-    </ul>
 {% endblock %}
