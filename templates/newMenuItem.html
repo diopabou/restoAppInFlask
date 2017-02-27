@@ -1,13 +1,48 @@
 {% extends 'layout.html'%}
 {% block body%}
 
-<h1>Add new menu item</h1>
-<form class="" action="{{url_for('newMenuItem', restaurant_id = restaurant.id)}}" method="post">
-  <input type="text" name="nameMenu" value="" placeholder="Menu item">
-  <input type="text" name="description" value="" placeholder="Menu description">
-  <input type="text" name="price" value="" placeholder="Menu Price">
-  <input type="text" name="course" value="" placeholder="Course">
-  <input type="submit" name="" value="Add Menu item">
-</form>
+<h1 class="text-center header__section__title">Add new menu item</h1>
+<div class="row">
+  <div class="col-md-offset-4 col-md-4">
+    <form class="form" action="{{url_for('newMenuItem', restaurant_id = restaurant.id)}}" method="post">
+    <div class="form-group">
+      <input type="text" name="nameMenu" placeholder="Menu item" class="form-control">
+    </div>
+    <div class="form-group">
+      <input type="text" name="description"  placeholder="Menu description" class="form-control">
+    </div>
+    <div class="form-group">
+      <input type="text" name="price"  placeholder="Menu Price" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="Appetizer" class="radio">
+        <input type="radio" name="course" value="Appetizer">
+        <span>Appetizer</span>
+      </label>
+    </div>
+    <div class="form-group">
+      <label for="Entree" class="radio">
+        <input type="radio" name="course" value="Entree">
+        <span>Entree</span>
+      </label>
+    </div>
+    <div class="form-group">
+      <label for="Dessert" class="radio">
+        <input type="radio" name="course" value="Dessert">
+        <span>Dessert</span>
+      </label>
+    </div>
+    <div class="form-group">
+      <label for="Beverage" class="radio">
+        <input type="radio" name="course" value="Beverage">
+        <span>Beverage</span>
+      </label>
+    </div>
+    <div class="form-group">
+      <input type="submit" name="" value="Add Menu item" class="btn btn-success">
+    </div>
+    </form>
+  </div>
+</div>
 
 {% endblock %}

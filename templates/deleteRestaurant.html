@@ -1,10 +1,12 @@
 {% extends 'layout.html' %}
 {% block body%}
 
-<h1>Delete Restaurant</h1>
+<h1 class="text-center header__section__title">Delete Restaurant</h1>
 <h2>Are you sure to want to delete {{ restaurant.name }} ?</h2>
 
-<form action="{{url_for('deleteRestaurant', restaurant_id = restaurant.id)}}" method = 'post'>
-<input type='submit', value = 'Delete'>
+<form action="{{url_for('deleteRestaurant', restaurant_id = restaurant.id)}}" method = 'post' class="form">
+<input type='submit', value = 'Delete' class="btn btn-danger">
+<a href="{{url_for('home')}}" class="btn btn-success">Cancel</a>
 </form>
+
 {% endblock %}

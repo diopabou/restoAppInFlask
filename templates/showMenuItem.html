@@ -13,23 +13,20 @@
     </div>
   </div>
 </div>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+  <ul>
+    {% for message in messages %}
+        <li class="alert-success feedback__message">{{message}}</li>
+    {% endfor%}
+  </ul>
+{% endif%}
 
-
+{% endwith %}
 <a href="{{url_for('editRestaurant', restaurant_id = restaurant.id)}}" class="add__things add__things__multiple">Edit Restaurant</a>
 <a href="{{url_for('newMenuItem', restaurant_id = restaurant.id)}}" class="add__things add__things__multiple">Add Menu Item</a>
- <a href="{{url_for('deleteRestaurant', restaurant_id = restaurant.id)}}" class="add__things add__things__multiple">Delete Restaurant</a>
+ <a href="{{url_for('deleteRestaurant', restaurant_id = restaurant.id)}}" class="add__things add__things__multiple delete">Delete Restaurant</a>
 <br><br><br>
-
-  {% with messages = get_flashed_messages() %}
-  {% if messages %}
-    <ul>
-      {% for message in messages %}
-          <li class="alert-success feedback__message">{{message}}</li>
-      {% endfor%}
-    </ul>
-  {% endif%}
-
-  {% endwith %}
 <div class="menu__items row" >
   <div class="Appetizer col-md-offset-2 col-md-4">
       <h1 class="course__title">APPETIZER</h1>
